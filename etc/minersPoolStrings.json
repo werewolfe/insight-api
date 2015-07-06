@@ -41,5 +41,13 @@
       "searchStrings":[
          "Omarg's Pools"
       ]
+   },
+   {
+      "poolName":"BTCChina Pool",
+      "url":"https://pool.btcchina.com/",
+      "searchStrings":[
+         "BTCChina Pool",
+         "btcchina.com"
+      ]
    }
 ]
