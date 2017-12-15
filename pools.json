@@ -1,0 +1,37 @@
+[
+	{
+		"poolName": "MinersPoolEU",
+		"url": "https://www.miners-pool.eu/",
+		"searchStrings": [
+			"minersPoolEU"
+		]
+	},
+	{
+		"poolName": "DigiHash",
+		"url": "http://digihash.co",
+		"searchStrings": [
+			"DigiHash"
+		]
+	},
+	{
+		"poolName": "ZPOOL",
+		"url": "https://www.zpool.ca",
+		"searchStrings": [
+			"www.zpool.ca"
+		]
+	},
+	{
+		"poolName": "The Blocks Factory",
+		"url": "https://dgb-sha.theblocksfactory.com",
+		"searchStrings": [
+			"theblocksfactory.com"
+		]
+	},
+	{
+		"poolName": "Omarg's Pools",
+		"url": "http://www.omargpools.ca/",
+		"searchStrings": [
+			"Omarg's Pools"
+		]
+	}
+]

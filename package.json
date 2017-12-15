@@ -1,100 +1,80 @@
 {
-  "name": "insight-bitcore-api",
-  "description": "An open-source bitcoin blockchain API. The Insight API provides you with a convenient, powerful and simple way to query and broadcast data on the bitcoin network and build your own services with it.",
-  "version": "0.2.12",
-  "author": {
-    "name": "Ryan X Charles",
-    "email": "ryan@bitpay.com"
-  },
-  "repository": "git://github.com/bitpay/insight-api.git",
+  "name": "insight-lite-api",
+  "description": "A DigiByte blockchain REST and web socket API service for digibyte Node.",
+  "version": "0.4.4",
+  "repository": "git://github.com/digibyte-project/insight-lite-api.git",
   "contributors": [
-    {
-      "name": "Matias Alejo Garcia",
-      "email": "ematiu@gmail.com"
-    },
-    {
-      "name": "Manuel Araoz",
-      "email": "manuelaraoz@gmail.com"
-    },
-    {
-      "name": "Mario Colque",
-      "email": "colquemario@gmail.com"
-    },
     {
       "name": "Gustavo Cortez",
       "email": "cmgustavo83@gmail.com"
+    },
+    {
+      "name": "Ivan Socolsky",
+      "email": "jungans@gmail.com"
     },
     {
       "name": "Juan Ignacio Sosa Lopez",
       "email": "bechilandia@gmail.com"
     },
     {
-      "name": "Ivan Socolsky",
-      "email": "jungans@gmail.com"
+      "name": "Manuel Araoz",
+      "email": "manuelaraoz@gmail.com"
+    },
+    {
+      "name": "Matias Alejo Garcia",
+      "email": "ematiu@gmail.com"
+    },
+    {
+      "name": "Mario Colque",
+      "email": "colquemario@gmail.com"
+    },
+    {
+      "name": "Patrick Nagurny",
+      "email": "patrick@bitpay.com"
+    },
+    {
+      "name": "Braydon Fuller",
+      "email": "braydon@bitpay.com"
     }
   ],
   "bugs": {
-    "url": "https://github.com/bitpay/insight-api/issues"
+    "url": "https://github.com/digibyte-project/insight-lite-api/issues"
   },
-  "homepage": "https://github.com/bitpay/insight-api",
+  "homepage": "https://github.com/digibyte-project/insight-lite-api",
   "license": "MIT",
   "keywords": [
     "insight",
     "insight api",
     "blockchain",
-    "bitcoin api",
+    "digibyte api",
     "blockchain api",
     "json",
-    "bitcore"
+    "digibyte"
   ],
   "engines": {
-    "node": "*"
+    "node": ">=0.12.0"
   },
-  "bin": "insight.js",
   "scripts": {
-    "start": "node node_modules/grunt-cli/bin/grunt"
+    "test": "NODE_ENV=test mocha -R spec --recursive"
   },
+  "main": "lib",
+  "bitcoreNode": "lib",
   "dependencies": {
     "async": "*",
-    "base58-native": "0.1.2",
-    "bignum": "*",
-    "bitauth": "^0.1.1",
-    "bitcore": "git://github.com/dgbholdings/bitcore.git#2d8ce5f2a00787b341c9d4eccfc08af89c9d8d17",
-    "bufferput": "git://github.com/bitpay/node-bufferput.git",
-    "buffertools": "*",
-    "commander": "^2.3.0",
-    "connect-ratelimit": "git://github.com/dharmafly/connect-ratelimit.git#0550eff209c54f35078f46445000797fa942ab97",
-    "cron": "^1.0.4",
-    "express": "~3.4.7",
-    "glob": "*",
-    "leveldown": "~0.10.0",
-    "levelup": "~0.19.0",
+    "digibyte": "^0.14.0",
+    "bitcore-message": "git://github.com/digicontributer/bitcore-message.git#9d9c8ad30158db25f683e2dee746a14a9d7ec8a0",
+    "body-parser": "^1.13.3",
+    "compression": "^1.6.1",
     "lodash": "^2.4.1",
-    "microtime": "^0.6.0",
-    "mkdirp": "^0.5.0",
-    "moment": "~2.5.0",
-    "nodemailer": "^1.3.0",
-    "preconditions": "^1.0.7",
-    "request": "^2.48.0",
-    "socket.io": "1.0.6",
-    "socket.io-client": "1.0.6",
-    "soop": "=0.1.5",
-    "winston": "*",
-    "xmlhttprequest": "~1.6.0"
+    "lru-cache": "^4.0.1",
+    "morgan": "^1.7.0",
+    "request": "^2.64.0"
   },
   "devDependencies": {
-    "chai": "*",
-    "grunt": "~0.4.2",
-    "grunt-cli": "~0.1.11",
-    "grunt-concurrent": "~0.4.2",
-    "grunt-contrib-jshint": "~0.8.0",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-env": "~0.4.1",
-    "grunt-markdown": "~0.5.0",
-    "grunt-mocha-test": "~0.8.1",
-    "grunt-nodemon": "~0.2.0",
-    "memdown": "^0.10.2",
-    "should": "^2.1.1",
+    "chai": "^3.5.0",
+    "mocha": "^2.4.5",
+    "proxyquire": "^1.7.2",
+    "should": "^8.3.1",
     "sinon": "^1.10.3"
   }
 }
