@@ -2,6 +2,7 @@
 var chai = require('chai'),
   expect = chai.expect,
   sinon = require('sinon');
+var should = require('should');
 
 var PeerSync = require('../../lib/PeerSync.js');
 describe('PeerSync', function() {
@@ -38,7 +39,8 @@ describe('PeerSync', function() {
 
   describe('#run()', function() {
     it('should setup peerman', function() {
-      var startSpy = sinon.spy(ps.peerman, 'start');
+      console.log(ps)
+      var startSpy = sinon.spy(ps.peerman, 'connect');
       var onSpy = sinon.spy(ps.peerman, 'on');
       ps.run();
 

@@ -3,7 +3,7 @@
 
 var async     = require('async');
 var bitcore   = require('digibyte');
-var RpcClient = bitcore.RpcClient;
+var RpcClient = require('digibyted-rpc');
 var config    = require('../../config/config');
 var rpc       = new RpcClient(config.bitcoind);
 var bDb       = require('../../lib/BlockDb').default();

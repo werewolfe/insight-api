@@ -1,5 +1,5 @@
 var levelup = require('levelup');
-var bitcore = require('bitcore');
+var bitcore = require('digibyte');
 var _ = require('lodash');
 
 var home = process.env['HOME'];
@@ -8,7 +8,7 @@ var newDb = new levelup(process.argv[3] || (home + '/.insight/testnet/emailstore
 
 var transformStoredValue = function(key) {
   var oldKey = key.substr('credentials-store-'.length);
-  return 'emailstore-' + bitcore.util.twoSha256(oldKey).toString('hex');
+  return 'emailstore-' + bitcore.crypto.Hash.sha256sha256(Buffer.from(oldKey)).toString('hex');
 };
 
 var transformPending = function(key) {
@@ -18,12 +18,12 @@ var transformPending = function(key) {
 
 var transformPassphrase = function(key) {
   var oldKey = key.substr('map-email-'.length);
-  return 'email-to-passphrase-' + bitcore.util.twoSha256(oldKey).toString('hex');
+  return 'email-to-passphrase-' + bitcore.crypto.Hash.sha256sha256(Buffer.from(oldKey)).toString('hex');
 };
 
 var transformValidated = function(key) {
   var oldKey = key.substr('validated-email-'.length);
-  return 'validated-' + bitcore.util.twoSha256(oldKey).toString('hex');
+  return 'validated-' + bitcore.crypto.Hash.sha256sha256(Buffer.from(oldKey)).toString('hex');
 };
 
 var checks = {

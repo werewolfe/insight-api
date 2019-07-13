@@ -60,7 +60,7 @@ if (!dataDir) {
   if (isMac) dataDir = process.env.HOME + '/Library/Application Support/Digibyte/';
   if (isLinux) dataDir = process.env.HOME + '/.digibyte/';
 }
-dataDir += network === 'testnet' ? 'testnet3' : '';
+dataDir += network === 'testnet' ? 'testnet4' : '';
 
 var safeConfirmations = process.env.INSIGHT_SAFE_CONFIRMATIONS || 6;
 var ignoreCache = process.env.INSIGHT_IGNORE_CACHE || 0;
@@ -74,7 +74,7 @@ var bitcoindConf = {
   port: process.env.BITCOIND_PORT || b_port,
   p2pPort: process.env.BITCOIND_P2P_PORT || p2p_port,
   p2pHost: process.env.BITCOIND_P2P_HOST || process.env.BITCOIND_HOST || '127.0.0.1',
-  //dataDir: dataDir,
+  dataDir: dataDir,
   // DO NOT CHANGE THIS!
   disableAgent: true
 };
