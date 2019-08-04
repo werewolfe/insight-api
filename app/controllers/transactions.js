@@ -68,7 +68,7 @@ var getTransaction = function(txid, cb) {
     if (err) console.log(err);
 
     if (!tx || !tx.info) {
-      console.log('[transactions.js.48]:: TXid %s not found in RPC. CHECK THIS.', txid);
+      console.log(`[transactions.js.48]:: TXid ${txid} not found in RPC. CHECK THIS.`);
       return ({ txid: txid });
     }
 
@@ -92,7 +92,6 @@ exports.list = function(req, res, next) {
   if (bId) {
     bdb.fromHashWithInfo(bId, function(err, block) {
       if (err) {
-        console.log(err);
         return res.status(500).send('Internal Server Error');
       }
 
@@ -113,7 +112,6 @@ exports.list = function(req, res, next) {
 
       async.mapSeries(txs, getTransaction, function(err, results) {
         if (err) {
-          console.log(err);
           res.status(404).send('TX not found');
         }
 
@@ -129,7 +127,6 @@ exports.list = function(req, res, next) {
 
     a.update(function(err) {
       if (err && !a.totalReceivedSat) {
-        console.log(err);
         res.status(404).send('Invalid address');
         return next();
       }
@@ -147,7 +144,6 @@ exports.list = function(req, res, next) {
 
       async.mapSeries(txs, getTransaction, function(err, results) {
         if (err) {
-          console.log(err);
           res.status(404).send('TX not found');
         }
 

@@ -44,7 +44,6 @@ exports.show = function(req, res) {
 exports.blockindex = function(req, res, next, height) {
   bdb.blockIndex(height, function(err, hashStr) {
     if (err) {
-      console.log(err);
       res.status(400).send('Bad Request'); // TODO
     } else {
       res.jsonp(hashStr);
@@ -55,13 +54,12 @@ exports.blockindex = function(req, res, next, height) {
 var getBlock = function(blockhash, cb) {
   bdb.fromHashWithInfo(blockhash, function(err, block) {
     if (err) {
-      console.log(err);
       return cb(err);
     }
 
     // TODO
     if (!block.info) {
-      console.log('Could not get %s from RPC. Orphan? Error?', blockhash); //TODO
+      console.log(`Could not get ${blockhash} from RPC. Orphan? Error?`); //TODO
       // Probably orphan
       block.info = {
         hash: blockhash,
@@ -134,7 +132,6 @@ exports.list = function(req, res) {
         function(b, cb) {
           getBlock(b.hash, function(err, info) {
             if (err) {
-              console.log(err);
               return cb(err);
             }
             if (b.ts < moreTs) moreTs = b.ts;
