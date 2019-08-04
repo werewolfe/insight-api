@@ -42,6 +42,7 @@ var fullTx = function(tx) {
   // Outputs
   var valueOut = 0;
   tx.vout.forEach(function(o) {
+    console.log('kskskksksksk', o)
     valueOut += o.valueSat;
   });
 
