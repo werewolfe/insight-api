@@ -62,7 +62,7 @@
     "commander": "^2.3.0",
     "connect-ratelimit": "git://github.com/dharmafly/connect-ratelimit.git#0550eff209c54f35078f46445000797fa942ab97",
     "cron": "^1.0.4",
-    "digibyte": "^0.15.5",
+    "digibyte": "^0.15.6",
     "digibyte-p2p": "^5.0.2",
     "digibyted-rpc": "git://github.com/digicontributer/digibyted-rpc.git",
     "express": "~3.4.7",
