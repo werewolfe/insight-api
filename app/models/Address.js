@@ -30,35 +30,35 @@ function Address(addrStr) {
   this.unspent   = [];
 
   var a = new BitcoreAddress(addrStr);
-  a.validate();
+  //a.validate();
   this.addrStr        = addrStr;
   
   Object.defineProperty(this, 'totalSent', {
     get: function() {
-      return parseFloat(this.totalSentSat) / parseFloat(BitcoreUtil.COIN);
+      return digibyte.Unit.fromSatoshis(this.totalSentSat).toDGB();
     },
     set:  function(i) {
-      this.totalSentSat =  i * BitcoreUtil.COIN;
+      this.totalSentSat =  digibyte.Unit.fromDGB(i).toSatoshis();
     },
     enumerable: 1,
   });
 
   Object.defineProperty(this, 'balance', {
     get: function() {
-      return parseFloat(this.balanceSat) / parseFloat(BitcoreUtil.COIN);
+      return digibyte.Unit.fromSatoshis(this.balanceSat).toDGB();
     },
     set:  function(i) {
-      this.balance =   i * BitcoreUtil.COIN;
+      this.balance =   digibyte.Unit.fromDGB(i).toSatoshis();
     },
     enumerable: 1,
   });
 
   Object.defineProperty(this, 'totalReceived', {
     get: function() {
-      return parseFloat(this.totalReceivedSat) / parseFloat(BitcoreUtil.COIN);
+      return digibyte.Unit.fromSatoshis(this.totalReceivedSat).toDGB();
     },
     set:  function(i) {
-      this.totalReceived =  i * BitcoreUtil.COIN;
+      this.totalReceived =  digibyte.Unit.fromDGB(i).toSatoshis();
     },
     enumerable: 1,
   });
@@ -66,10 +66,10 @@ function Address(addrStr) {
 
   Object.defineProperty(this, 'unconfirmedBalance', {
     get: function() {
-      return parseFloat(this.unconfirmedBalanceSat) / parseFloat(BitcoreUtil.COIN);
+      return  digibyte.Unit.fromSatoshis(this.unconfirmedBalanceSat).toDGB();
     },
     set:  function(i) {
-      this.unconfirmedBalanceSat =  i * BitcoreUtil.COIN;
+      this.unconfirmedBalanceSat =  digibyte.Unit.fromDGB(i).toSatoshis();
     },
     enumerable: 1,
   });
