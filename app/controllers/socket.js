@@ -2,7 +2,8 @@
 
 // server-side socket behaviour
 var ios = null; // io is already taken in express
-var util = require('digibyte').util;
+var digibyte = require('digibyte');
+var util = digibyte.util;
 var logger = require('../../lib/logger').logger;
 
 module.exports.init = function(io_ext) {
@@ -42,10 +43,11 @@ var fullTx = function(tx) {
   // Outputs
   var valueOut = 0;
   tx.vout.forEach(function(o) {
+    console.log(o, 'oooooo');
     valueOut += o.valueSat;
   });
 
-  t.valueOut = (valueOut.toFixed(8) / util.COIN);
+  t.valueOut = digibyte.Unit.fromSatoshis(valueOut).toDGB();
   return t;
 };
 
@@ -68,6 +70,7 @@ module.exports.broadcastAddressTx = function(txid, address) {
 };
 
 module.exports.broadcastSyncInfo = function(historicSync) {
+  console.log(historicSync)
   if (ios)
     ios.sockets.in('sync').emit('status', historicSync);
 };
