@@ -2,13 +2,8 @@
 
 var imports            = require('soop').imports();
 var _                  = require('lodash');
-var async              = require('async');
 var digibyte            = require('digibyte');
 var BitcoreAddress     = digibyte.Address;
-var BitcoreTransaction = digibyte.Transaction;
-var BitcoreUtil        = digibyte.util;
-var Parser             = digibyte.BinaryParser;
-var Buffer             = digibyte.Buffer;
 var TransactionDb      = imports.TransactionDb || require('../../lib/TransactionDb').default();
 var BlockDb            = imports.BlockDb || require('../../lib/BlockDb').default();
 var config              = require('../../config/config');
@@ -186,7 +181,7 @@ Address.prototype.update = function(next, opts) {
                 vout: x.index,
                 ts: x.ts,
                 scriptPubKey: x.scriptPubKey,
-                amount: x.value_sat / BitcoreUtil.COIN,
+                amount: digibyte.Unit.fromSatoshis(x.value_sat).toDGB(),
                 confirmations: x.isConfirmedCached ? (config.safeConfirmations) : x.confirmations,
                 confirmationsFromCache: !!x.isConfirmedCached,
               };
