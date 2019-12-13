@@ -25,8 +25,8 @@ if (process.env.INSIGHT_NETWORK === 'livenet') {
   env = 'livenet';
   db = home;
   port = '3000';
-  b_port = '14022';
-  p2p_port = '12024';
+  b_port = '93333';
+  p2p_port = '93332';
 } else {
   env = 'testnet';
   db = home + '/testnet';
